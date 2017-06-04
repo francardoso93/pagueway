@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Gama.GrupoAvengers.Blog.BlogLead>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Relatório de Leads</h2>
+
+<h3>
+
+    @Html.ActionLink("Baixar Relatório", "All")
+</h3>
+
+<h3>Total: @Model.Count()</h3>
+
+<table class="table">
+    <tr>
+        <th>
+           Nome
+        </th>
+        <th>
+            Sobrenome
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            IP
+        </th>
+        <th>
+            Data de Cadastro
+        </th>
+        <th>
+            Tipo
+        </th>
+        <th>
+            Razão da Visita
+        </th>
+        <th>
+            Empresa
+        </th>
+        <th>
+            Cargo
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientIP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeadType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeadIs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Occupation)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>*@
+        </tr>
+    }
+
+</table>
